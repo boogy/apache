@@ -16,7 +16,6 @@ RUN ln -sf /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enab
     ln -sf /etc/apache2/mods-available/php5.conf /etc/apache2/mods-enabled/ && \
     ln -sf /etc/apache2/mods-available/php5.load /etc/apache2/mods-enabled/
 
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
