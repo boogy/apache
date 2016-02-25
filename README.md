@@ -8,6 +8,14 @@ Pull from docker hub
 docker pull boogy/apache-php
 ```
 
+Build the image localy
+
+```bash
+git clone https://github.com/boogy/apache-php.git
+cd apache-php
+docker build -t username/apache-php .
+```
+
 Run the a simple server:
 
 ```bash
