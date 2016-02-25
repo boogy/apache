@@ -19,3 +19,4 @@ RUN ln -sf /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enab
 EXPOSE 80 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
