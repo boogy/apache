@@ -1,22 +1,23 @@
 FROM ubuntu:latest
 MAINTAINER boogy <theboogymaster@gmail.com>
+## Inspired by eboraas/apache
 
-RUN apt-get update && \
-    apt-get -y install apache2 php5 libapache2-mod-php5 && \
-    apt-get clean
+RUN apt update \
+    && apt upgrade
+    && apt -y install apache2 php5 php5-mysql libapache2-mpm-itk \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV APACHE_RUN_USER apache
-ENV APACHE_RUN_GROUP apache
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
 ENV APACHE_LOG_DIR /var/log/apache2
 
-RUN ln -sf /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl && \
-    ln -sf /etc/apache2/mods-available/ssl.conf /etc/apache2/mods-enabled/ && \
-    ln -sf /etc/apache2/mods-available/ssl.load /etc/apache2/mods-enabled/ && \
-    ln -sf /etc/apache2/mods-available/socache_shmcb.load /etc/apache2/mods-enabled/ && \
-    ln -sf /etc/apache2/mods-available/php5.conf /etc/apache2/mods-enabled/ && \
-    ln -sf /etc/apache2/mods-available/php5.load /etc/apache2/mods-enabled/
+RUN /usr/sbin/a2ensite default-ssl \
+    && /usr/sbin/a2enmod ssl
+    && /usr/sbin/a2dismod 'mpm_*' \
+    && /usr/sbin/a2enmod mpm_prefork
 
-EXPOSE 80 443
+EXPOSE 80
+EXPOSE 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-
