@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:stable
 MAINTAINER boogy <theboogymaster@gmail.com>
 ## Inspired by eboraas/apache
 
@@ -22,3 +22,4 @@ EXPOSE 80
 EXPOSE 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
