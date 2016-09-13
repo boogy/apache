@@ -1,7 +1,7 @@
 Ubuntu apache server
 =====================
 
-Docker image based on ubuntu which provides apache server with php and ssl.
+Docker image based on debian which provides apache server with php and ssl.
 
 Pull from docker hub
 ```bash
