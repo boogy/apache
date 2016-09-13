@@ -36,7 +36,7 @@ As per the defaults, Apache will use the bundled "snakeoil" key when serving SSL
 
 ### Generate ssl certificate on ubuntu:
 
-__The certificate was generated on a ubuntu machine.__
+**The certificate was generated on a ubuntu machine.**
 ```bash
 sudo apt-get install python-letsencrypt-apache
 sudo letsencrypt --apache -d mydomaine.com -d www.mydomaine.com
