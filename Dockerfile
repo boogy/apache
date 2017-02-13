@@ -18,7 +18,6 @@ RUN /usr/sbin/a2ensite default-ssl \
     && /usr/sbin/a2dismod 'mpm_*' \
     && /usr/sbin/a2enmod mpm_prefork
 
-
 EXPOSE 80
 EXPOSE 443
 
