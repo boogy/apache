@@ -20,5 +20,5 @@ RUN /usr/sbin/a2ensite default-ssl \
 
 EXPOSE 80 443
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
